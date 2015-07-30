@@ -2,16 +2,17 @@ package oo;
 
 import org.junit.Test;
 
+import static org.junit.Assert.assertThat;
 import static org.junit.Assert.assertTrue;
 
 /**
  * test length
- * <p>
+ * <p/>
  * Created by twer on 15/7/28.
  */
 public class CompareLengthTest {
     @Test
-    public void should_return_longer() {
+    public void should_return_longer_given_same_units() {
         Length longer = new Length(2, Unit.M);
         Length shorter = new Length(1, Unit.M);
 
@@ -21,7 +22,7 @@ public class CompareLengthTest {
     }
 
     @Test
-    public void should_return_shorter() {
+    public void should_return_shorter_given_same_units() {
         Length longer = new Length(2, Unit.CM);
         Length shorter = new Length(1, Unit.CM);
 
@@ -31,7 +32,7 @@ public class CompareLengthTest {
     }
 
     @Test
-    public void should_be_same() {
+    public void should_be_same_given_same_units() {
         Length left = new Length(1, Unit.DM);
         Length right = new Length(1, Unit.DM);
 
@@ -40,11 +41,33 @@ public class CompareLengthTest {
         assertTrue(result);
     }
 
-    @Test(expected = RuntimeException.class)
-    public void should_throw_exception_when_given_different_units() {
-        Length longer = new Length(2, Unit.M);
-        Length shorter = new Length(1, Unit.CM);
+    @Test
+    public void should_return_longer_given_different_units() {
+        Length longer = new Length(1, Unit.M);
+        Length shorter = new Length(2, Unit.CM);
 
-        longer.isLongerThan(shorter);
+        boolean result = longer.isLongerThan(shorter);
+
+        assertTrue(result);
+    }
+
+    @Test
+    public void should_return_shorter_given_different_units() {
+        Length longer = new Length(1, Unit.DM);
+        Length shorter = new Length(9, Unit.CM);
+
+        boolean result = longer.isShorterThan(shorter);
+
+        assertTrue(result);
+    }
+
+    @Test
+    public void should_be_same_given_different_units() {
+        Length left = new Length(1, Unit.M);
+        Length right = new Length(10, Unit.DM);
+
+        boolean result = left.equals(right);
+
+        assertTrue(result);
     }
 }
