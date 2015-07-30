@@ -2,7 +2,6 @@ package oo;
 
 import org.junit.Test;
 
-import static org.junit.Assert.assertThat;
 import static org.junit.Assert.assertTrue;
 
 /**
@@ -56,7 +55,7 @@ public class CompareLengthTest {
         Length longer = new Length(1, Unit.DM);
         Length shorter = new Length(9, Unit.CM);
 
-        boolean result = longer.isShorterThan(shorter);
+        boolean result = shorter.isShorterThan(longer);
 
         assertTrue(result);
     }
