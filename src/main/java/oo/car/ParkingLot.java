@@ -9,18 +9,14 @@ import java.util.*;
  */
 public class ParkingLot {
     private Map<String, String> parkedCars = new HashMap<>();
-    private int space;
+    private int maxSpace;
 
-    public ParkingLot(int space) {
-        this.space = space;
+    public ParkingLot(int maxSpace) {
+        this.maxSpace = maxSpace;
     }
 
     public String pick(String cardNo) {
-        String licenseNo = parkedCars.get(cardNo);
-        if (licenseNo != null) {
-            parkedCars.remove(cardNo);
-        }
-        return licenseNo;
+        return parkedCars.remove(cardNo);
     }
 
     public String park(String licenseNo) {
@@ -33,6 +29,6 @@ public class ParkingLot {
     }
 
     private boolean haveEmptySlot() {
-        return parkedCars.size() < space;
+        return parkedCars.size() < maxSpace;
     }
 }
