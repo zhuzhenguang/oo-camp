@@ -1,8 +1,8 @@
-package oo;
+package oo.length;
 
 /**
  * length
- *
+ * <p/>
  * Created by twer on 15/7/28.
  */
 public class Length {
@@ -14,26 +14,19 @@ public class Length {
         this.unit = unit;
     }
 
-    private int compare(Length other) {
-        if (this.unit != other.unit) {
-            throw new RuntimeException("Not support");
-        }
-
-        if (value > other.value) {
-            return 1;
-        } else if (value < other.value) {
-            return -1;
-        } else {
-            return 0;
-        }
+    private double convertUnitSameWith(Length other) {
+        double factor = unit.convertTo(other.getUnit());
+        return value * factor;
     }
 
     public boolean isLongerThan(Length shorter) {
-        return compare(shorter) == 1;
+        double shorterValue = shorter.convertUnitSameWith(this);
+        return value > shorterValue;
     }
 
     public boolean isShorterThan(Length longer) {
-        return compare(longer) == -1;
+        double longerValue = longer.convertUnitSameWith(this);
+        return value < longerValue;
     }
 
     @Override
@@ -41,8 +34,9 @@ public class Length {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        Length length = (Length) o;
-        return compare(length) == 0;
+        Length other = (Length) o;
+        double otherValue = other.convertUnitSameWith(this);
+        return value == otherValue;
     }
 
     @Override
@@ -53,5 +47,9 @@ public class Length {
         result = (int) (temp ^ (temp >>> 32));
         result = 31 * result + (unit != null ? unit.hashCode() : 0);
         return result;
+    }
+
+    public Unit getUnit() {
+        return unit;
     }
 }

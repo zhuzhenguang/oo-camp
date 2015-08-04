@@ -1,5 +1,7 @@
-package oo;
+package oo.length;
 
+import oo.length.Length;
+import oo.length.Unit;
 import org.junit.Test;
 
 import static org.junit.Assert.assertTrue;
