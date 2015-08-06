@@ -1,0 +1,71 @@
+1.
+given: a parking boy manage a parking lot with an empty position
+when: the boy park a car
+then: return car no and can pick the car
+
+2.
+given: a parking boy manage a parking lot with no empty position
+when: the boy park a car
+then: return null
+
+3.
+given: a parking boy manage 2 parking lots with an empty position
+when: the boy park a car
+then: return car no and can pick the car
+
+4.
+given: a parking boy manage 2 parking lots with no empty position
+when: the boy park a car
+then: return null
+
+5.
+given: a parking boy manage 1 parking lot with an empty position and a car has been parked
+when: the boy pick the car
+then: return the car
+
+6.
+given: a parking boy manage 2 parking lots with an empty position and the body has parked a car
+when: the boy pick a car
+then: return the car
+
+7.
+given: a parking boy manage 1 parking lot with an empty position.
+when: the body pick an not exist car
+then: return null
+
+8.
+given: a parking boy manage 1 parking lot with an empty position.
+       a car is parked.
+       the car is picked.
+when: the boy pick the car again
+then: return null
+
+
+
+
+9.
+given: there is 1 parking lot with an empty position
+when: park a car
+then: park successfully and can pick the car
+
+10.
+given: there are 1 parking lots with no empty position
+when: park a car
+then: return null
+
+11.
+given: there are 2 parking lots with an empty position
+when: park a car
+then: park successfully and can pick the car
+
+12.
+given: a parking boy manage 1 parking lot with an empty position.
+when: pick an not exist car
+then: return null
+
+13.
+given: there are 1 parking lots with 1 empty position.
+       a car is parked.
+       the car is picked.
+when: pick the car again
+then: return null
