@@ -28,6 +28,10 @@ public class ParkingLot {
         return cardNo;
     }
 
+    int emptySlot() {
+        return maxSpace - parkedCars.size();
+    }
+
     private boolean haveEmptySlot() {
         return parkedCars.size() < maxSpace;
     }
