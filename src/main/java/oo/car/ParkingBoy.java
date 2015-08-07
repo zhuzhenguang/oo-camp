@@ -1,25 +1,28 @@
 package oo.car;
 
+import oo.car.parkpolicy.ParkByEmptySlotsPolicy;
+import oo.car.parkpolicy.ParkPolicy;
+import oo.car.parkpolicy.ParkSequentialPolicy;
+
+import java.util.Optional;
+
 /**
- * parking body
+ * parking boy
  * <p/>
- * Created by twer on 15/8/6.
+ * Created by twer on 15/8/7.
  */
 public class ParkingBoy {
-    private ParkingLot[] parkingLots;
+    protected ParkingLot[] parkingLots;
+    private ParkPolicy parkPolicy;
 
-    public ParkingBoy(ParkingLot... parkingLots) {
+    private ParkingBoy(ParkPolicy parkPolicy, ParkingLot... parkingLots) {
+        this.parkPolicy = parkPolicy;
         this.parkingLots = parkingLots;
     }
 
     public String park(String car) {
-        for (ParkingLot parkingLot : parkingLots) {
-            String carNo = parkingLot.park(car);
-            if (carNo != null) {
-                return carNo;
-            }
-        }
-        return null;
+        Optional<ParkingLot> parkingLot = parkPolicy.choose(parkingLots);
+        return parkingLot.isPresent() ? parkingLot.get().park(car) : null;
     }
 
     public String pick(String carNo) {
@@ -30,5 +33,13 @@ public class ParkingBoy {
             }
         }
         return null;
+    }
+
+    public static ParkingBoy commonInstance(ParkingLot... parkingLots) {
+        return new ParkingBoy(new ParkSequentialPolicy(), parkingLots);
+    }
+
+    public static ParkingBoy smartInstance(ParkingLot... parkingLots) {
+        return new ParkingBoy(new ParkByEmptySlotsPolicy(), parkingLots);
     }
 }
