@@ -13,14 +13,13 @@ public class ParkingBoy {
     }
 
     public String park(String car) {
-        String carNo = null;
         for (ParkingLot parkingLot : parkingLots) {
-            carNo = parkingLot.park(car);
+            String carNo = parkingLot.park(car);
             if (carNo != null) {
-                break;
+                return carNo;
             }
         }
-        return carNo;
+        return null;
     }
 
     public String pick(String carNo) {

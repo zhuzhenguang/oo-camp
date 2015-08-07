@@ -24,13 +24,13 @@ when: the boy pick the car
 then: return the car
 
 6.
-given: a parking boy manage 2 parking lots with an empty position and the body has parked a car
+given: a parking boy manage 2 parking lots with an empty position and the boy has parked a car
 when: the boy pick a car
 then: return the car
 
 7.
 given: a parking boy manage 1 parking lot with an empty position.
-when: the body pick an not exist car
+when: the boy pick an not exist car
 then: return null
 
 8.

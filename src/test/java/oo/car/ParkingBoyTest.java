@@ -33,20 +33,18 @@ public class ParkingBoyTest {
 
     @Test
     public void should_park_car_by_body_when_he_manage_2_parking_lot_with_1_empty_position() {
-        ParkingLot parkingLot1 = new ParkingLot(0);
-        ParkingLot parkingLot2 = new ParkingLot(1);
-        ParkingBoy aBoy = new ParkingBoy(parkingLot1, parkingLot2);
+        ParkingLot fullParkingLot = new ParkingLot(0);
+        ParkingLot emptyParkingLot = new ParkingLot(1);
+        ParkingBoy aBoy = new ParkingBoy(fullParkingLot, emptyParkingLot);
 
         String carNo = aBoy.park("a new car");
 
-        assertEquals("a new car", parkingLot2.pick(carNo));
+        assertEquals("a new car", emptyParkingLot.pick(carNo));
     }
 
     @Test
     public void should_not_park_car_by_body_when_he_manage_2_parking_lot_with_no_empty_position() {
-        ParkingLot parkingLot1 = new ParkingLot(0);
-        ParkingLot parkingLot2 = new ParkingLot(0);
-        ParkingBoy aBoy = new ParkingBoy(parkingLot1, parkingLot2);
+        ParkingBoy aBoy = new ParkingBoy(new ParkingLot(0), new ParkingLot(0));
 
         String carNo = aBoy.park("a new car");
 
