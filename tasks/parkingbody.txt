@@ -40,32 +40,8 @@ given: a parking boy manage 1 parking lot with an empty position.
 when: the boy pick the car again
 then: return null
 
-
-
-
 9.
-given: there is 1 parking lot with an empty position
-when: park a car
-then: park successfully and can pick the car
-
-10.
-given: there are 1 parking lots with no empty position
-when: park a car
-then: return null
-
-11.
-given: there are 2 parking lots with an empty position
-when: park a car
-then: park successfully and can pick the car
-
-12.
-given: a parking boy manage 1 parking lot with an empty position.
-when: pick an not exist car
-then: return null
-
-13.
-given: there are 1 parking lots with 1 empty position.
-       a car is parked.
-       the car is picked.
-when: pick the car again
-then: return null
+given: a parking boy manage 2 parking lots.
+       first parking lot have 1 empty position and second have 1 too.
+when: the boy park the car
+then: can pick the car from first parking lot

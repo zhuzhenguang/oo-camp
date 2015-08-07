@@ -92,4 +92,16 @@ public class ParkingBoyTest {
         assertNull(pickedCar);
     }
 
+    @Test
+    public void should_park_car_orderly_by_body() {
+        ParkingLot firstParkingLot = new ParkingLot(1);
+        ParkingLot secondParkingLot = new ParkingLot(1);
+        ParkingBoy aBoy = new ParkingBoy(firstParkingLot, secondParkingLot);
+        String carNo = aBoy.park("a new car");
+
+        String pickedCar = firstParkingLot.pick(carNo);
+
+        assertEquals("a new car", pickedCar);
+    }
+
 }
