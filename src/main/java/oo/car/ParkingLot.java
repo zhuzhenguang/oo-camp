@@ -35,4 +35,8 @@ public class ParkingLot {
     public boolean haveEmptySlot() {
         return parkedCars.size() < maxSpace;
     }
+
+    public double vacancyRate() {
+        return maxSpace == 0 ? 0 : (double) emptySlot() / (double) maxSpace;
+    }
 }

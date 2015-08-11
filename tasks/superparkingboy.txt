@@ -1,0 +1,13 @@
+1.
+given: a parking boy manage 2 parking lot
+       first parking lot has 1 position and 1 empty
+       second is same with first
+when: the boy park a car
+then: can pick the car form first parking lot
+
+2.
+given: a parking boy manage 2 parking lot
+       first parking lot has 2 position and 1 empty
+       second has 1 position and 1 empty
+when: the boy park a car
+then: can pick the car form second parking lot
