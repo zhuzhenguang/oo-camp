@@ -105,9 +105,12 @@ public class SuperParkingBoyTest {
 
     @Test
     public void should_park_car_to_vacancy_rate_larger_parking_lot(){
-        ParkingLot vacancyRateSmaller = new ParkingLot(2);
-        vacancyRateSmaller.park("toyota car");
-        ParkingLot vacancyRateLarger = new ParkingLot(1);
+        ParkingLot vacancyRateSmaller = new ParkingLot(5);
+        vacancyRateSmaller.park("Toyota car");
+        vacancyRateSmaller.park("Nissan car");
+        vacancyRateSmaller.park("Hongda car");
+        ParkingLot vacancyRateLarger = new ParkingLot(2);
+        vacancyRateLarger.park("Audi car");
         ParkingBoy aBoy = ParkingBoy.superInstance(vacancyRateSmaller, vacancyRateLarger);
 
         String carNo = aBoy.park("BMW car");
