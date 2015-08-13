@@ -1,6 +1,6 @@
 package oo.car;
 
-import oo.car.parkpolicy.ParkingByByEmptySlotsPolicy;
+import oo.car.parkpolicy.ParkingByEmptySlotsPolicy;
 import oo.car.parkpolicy.ParkPolicy;
 import oo.car.parkpolicy.ParkSequentialPolicy;
 import oo.car.parkpolicy.ParkingByVacancyRatePolicy;
@@ -41,7 +41,7 @@ public class ParkingBoy {
     }
 
     public static ParkingBoy smartInstance(ParkingLot... parkingLots) {
-        return new ParkingBoy(new ParkingByByEmptySlotsPolicy(), parkingLots);
+        return new ParkingBoy(new ParkingByEmptySlotsPolicy(), parkingLots);
     }
 
     public static ParkingBoy superInstance(ParkingLot... parkingLots) {
