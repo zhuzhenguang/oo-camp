@@ -1,0 +1,35 @@
+1.
+given: a parking manager manage 1 parking lot with 1 empty position
+when: the manager park a car
+then: can pick the car
+
+2.
+given: a parking manager manage 2 parking lot with 1 empty position
+when: the manager park a car
+then: can pick the car
+
+3.
+given: a parking manager manage 1 parking lot with 1 empty position
+when: the manager park a car
+then: the manager can pick the car
+
+4.
+given: a parking manager manage 1 parking boy
+       the manager manage 1 parking lot with 0 empty position
+when: the manager park a car
+then: the manager can pick the car
+
+5.
+given: a parking manager manage 2 parking boy
+       first boy manage 1 parking lot with 1 empty position
+       second boy manage 1 parking lot with 1 empty position
+       the manager manage 1 parking lot with 0 empty position
+when: the manager park a car
+then: the manager pick the car
+
+6.
+given: a parking manager manage 1 parking boy
+       the boy manage 1 parking lot with no empty position
+       the manager manage 1 parking lot with 1 empty position
+when: the manager park the car
+then: the manager can pick the car

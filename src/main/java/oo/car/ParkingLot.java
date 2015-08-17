@@ -19,11 +19,11 @@ public class ParkingLot {
         return parkedCars.remove(cardNo);
     }
 
-    public String park(String licenseNo) {
+    public String park(String car) {
         String cardNo = null;
         if (haveEmptySlot()) {
             cardNo = UUID.randomUUID().toString();
-            parkedCars.put(cardNo, licenseNo);
+            parkedCars.put(cardNo, car);
         }
         return cardNo;
     }

@@ -12,7 +12,7 @@ import static org.junit.Assert.assertNull;
  */
 public class CommonParkingBoyTest {
     @Test
-    public void should_park_car_by_body_when_he_manage_a_parking_lot_with_a_empty_position() {
+    public void should_park_car_by_boy_when_he_manage_a_parking_lot_with_a_empty_position() {
         ParkingLot aParkingLot = new ParkingLot(1);
         ParkingBoy aBoy = ParkingBoy.commonInstance(aParkingLot);
 
@@ -22,7 +22,7 @@ public class CommonParkingBoyTest {
     }
 
     @Test
-    public void should_not_park_car_by_body_when_he_manage_a_parking_lot_with_no_empty_position() {
+    public void should_not_park_car_by_boy_when_he_manage_a_parking_lot_with_no_empty_position() {
         ParkingLot aParkingLot = new ParkingLot(0);
         ParkingBoy aBoy = ParkingBoy.commonInstance(aParkingLot);
 
@@ -32,7 +32,7 @@ public class CommonParkingBoyTest {
     }
 
     @Test
-    public void should_park_car_by_body_when_he_manage_2_parking_lot_with_1_empty_position() {
+    public void should_park_car_by_boy_when_he_manage_2_parking_lot_with_1_empty_position() {
         ParkingLot fullParkingLot = new ParkingLot(0);
         ParkingLot emptyParkingLot = new ParkingLot(1);
         ParkingBoy aBoy = ParkingBoy.commonInstance(fullParkingLot, emptyParkingLot);
@@ -43,7 +43,7 @@ public class CommonParkingBoyTest {
     }
 
     @Test
-    public void should_not_park_car_by_body_when_he_manage_2_parking_lot_with_no_empty_position() {
+    public void should_not_park_car_by_boy_when_he_manage_2_parking_lot_with_no_empty_position() {
         ParkingBoy aBoy = ParkingBoy.commonInstance(new ParkingLot(0), new ParkingLot(0));
 
         String carNo = aBoy.park("a new car");
@@ -52,7 +52,7 @@ public class CommonParkingBoyTest {
     }
 
     @Test
-    public void should_pick_car_by_body_when_he_manage_1_parking_lot_with_1_empty_position_and_a_car_has_been_parked() {
+    public void should_pick_car_by_boy_when_he_manage_1_parking_lot_with_1_empty_position_and_a_car_has_been_parked() {
         ParkingLot aParkingLot = new ParkingLot(1);
         ParkingBoy aBoy = ParkingBoy.commonInstance(aParkingLot);
         String carNo = aParkingLot.park("a new car");
@@ -63,7 +63,7 @@ public class CommonParkingBoyTest {
     }
 
     @Test
-    public void should_pick_car_by_body_when_he_manage_2_parking_lot_with_1_empty_position_and_has_parked_a_car() {
+    public void should_pick_car_by_boy_when_he_manage_2_parking_lot_with_1_empty_position_and_has_parked_a_car() {
         ParkingBoy aBoy = ParkingBoy.commonInstance(new ParkingLot(0), new ParkingLot(1));
         String carNo = aBoy.park("a new car");
 
@@ -93,7 +93,7 @@ public class CommonParkingBoyTest {
     }
 
     @Test
-    public void should_park_car_orderly_by_body() {
+    public void should_park_car_orderly_by_boy() {
         ParkingLot firstParkingLot = new ParkingLot(1);
         ParkingLot secondParkingLot = new ParkingLot(2);
         ParkingBoy aBoy = ParkingBoy.commonInstance(firstParkingLot, secondParkingLot);
